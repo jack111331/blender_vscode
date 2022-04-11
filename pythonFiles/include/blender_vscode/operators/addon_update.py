@@ -9,7 +9,7 @@ class UpdateAddonOperator(bpy.types.Operator):
     bl_idname = "dev.update_addon"
     bl_label = "Update Addon"
 
-    module_name: StringProperty()
+    module_name = StringProperty()
 
     def execute(self, context):
         try:

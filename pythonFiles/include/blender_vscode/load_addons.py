@@ -7,8 +7,8 @@ from . communication import send_dict_as_json
 from . environment import user_addon_directory, addon_directories
 
 def setup_addon_links(addons_to_load):
-    if not os.path.exists(user_addon_directory):
-        os.makedirs(user_addon_directory)
+    if not os.path.exists(str(user_addon_directory)):
+        os.makedirs(str(user_addon_directory))
 
     if not str(user_addon_directory) in sys.path:
         sys.path.append(str(user_addon_directory))
@@ -19,7 +19,7 @@ def setup_addon_links(addons_to_load):
         if is_in_any_addon_directory(source_path):
             load_path = source_path
         else:
-            load_path = os.path.join(user_addon_directory, module_name)
+            load_path = os.path.join(str(user_addon_directory), module_name)
             create_link_in_user_addon_directory(source_path, load_path)
 
         path_mappings.append({
@@ -32,7 +32,7 @@ def setup_addon_links(addons_to_load):
 def load(addons_to_load):
     for source_path, module_name in addons_to_load:
         try:
-            bpy.ops.preferences.addon_enable(module=module_name)
+            bpy.ops.wm.addon_enable(module=module_name)
         except:
             traceback.print_exc()
             send_dict_as_json({"type" : "enableFailure", "addonPath" : str(source_path)})

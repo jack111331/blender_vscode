@@ -24,4 +24,4 @@ def always():
             traceback.print_exc()
     return 0.1
 
-bpy.app.timers.register(always, persistent=True)
+# bpy.app.timers.register(always, persistent=True)

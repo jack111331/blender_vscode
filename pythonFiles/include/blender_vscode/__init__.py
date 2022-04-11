@@ -2,7 +2,7 @@ import bpy
 import sys
 
 def startup(editor_address, addons_to_load, allow_modify_external_python):
-    if bpy.app.version < (2, 80, 34):
+    if bpy.app.version < (2, 79, 0):
         handle_fatal_error("Please use a newer version of Blender")
 
     from . import installation

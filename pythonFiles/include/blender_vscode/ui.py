@@ -14,9 +14,9 @@ class DevelopmentPanel(bpy.types.Panel):
 
     def draw(self, context):
         layout = self.layout
-        layout.label(text=f"Blender at Port {get_blender_port()}")
-        layout.label(text=f"debugpy at Port {get_debugpy_port()}")
-        layout.label(text=f"Editor at Address {get_editor_address()}")
+        layout.label(text=("Blender at Port", get_blender_port()))
+        layout.label(text=("debugpy at Port", get_debugpy_port()))
+        layout.label(text=("Editor at Address", get_editor_address()))
 
 
 classes = (

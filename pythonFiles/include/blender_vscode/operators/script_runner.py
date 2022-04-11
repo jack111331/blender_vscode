@@ -9,7 +9,7 @@ class RunScriptOperator(bpy.types.Operator):
     bl_idname = "dev.run_script"
     bl_label = "Run Script"
 
-    filepath: StringProperty()
+    filepath= StringProperty()
 
     def execute(self, context):
         ctx = prepare_script_context(self.filepath)
